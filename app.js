@@ -7,14 +7,24 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import AssignmentRoutes from './assignments/routes.js';
 const app = express();
+app.set("trust proxy", 1);
+app.use(cors({
+  credentials: true,
+  origin: "https://a5--gorgeous-capybara-5ab697.netlify.app",
+}
+));
 app.use(
-  cors({
-    origin: process.env.FRONTEND_URL, // use your actual domain name (or localhost), using * is not recommended
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-    credentials: true
-  })
-);
+    session({
+      secret: "any string",
+      resave: false,
+      proxy: true,
+      saveUninitialized: false,
+      cookie: {
+        sameSite: "none",
+        secure: true,
+      },
+    })
+   );
 app.use(express.json());
 ModuleRoutes(app);
 CourseRoutes(app);
