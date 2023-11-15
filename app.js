@@ -9,7 +9,7 @@ import AssignmentRoutes from './assignments/routes.js';
 const app = express();
 app.use(
   cors({
-    origin: 'https://kanbas-node-server-app-vlfd.onrender.com', // use your actual domain name (or localhost), using * is not recommended
+    origin: process.env.FRONTEND_URL, // use your actual domain name (or localhost), using * is not recommended
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
     credentials: true
