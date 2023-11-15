@@ -13,7 +13,6 @@ app.use(
     origin: process.env.FRONTEND_URL
   })
 );
-
 app.use(express.json());
 ModuleRoutes(app);
 CourseRoutes(app);
