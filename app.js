@@ -6,7 +6,7 @@ import cors from "cors";
 import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import AssignmentRoutes from './assignments/routes.js';
-const app = express()
+const app = express();
 app.use(
   cors({
     credentials: true,
