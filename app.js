@@ -11,7 +11,7 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(cors({
   credentials: true,
-  origin: "https://a5--gorgeous-capybara-5ab697.netlify.app",
+  origin: "http://localhost:3000",
 }
 ));
 app.use(
