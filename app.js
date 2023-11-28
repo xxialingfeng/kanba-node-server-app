@@ -7,8 +7,6 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import AssignmentRoutes from './assignments/routes.js';
 import session from 'express-session'
-import mongoose from "mongoose";
-mongoose.connect("mongodb://127.0.0.1:27017/Kanbas");
 import UserRoutes from "./users/routes.js";
 const app = express();
 app.set("trust proxy", 1);
