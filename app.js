@@ -7,11 +7,14 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import AssignmentRoutes from './assignments/routes.js';
 import session from 'express-session'
+import mongoose from "mongoose";
+mongoose.connect("mongodb://127.0.0.1:27017/Kanbas");
+import UserRoutes from "./users/routes.js";
 const app = express();
 app.set("trust proxy", 1);
 app.use(cors({
   credentials: true,
-  origin: "https://a5--gorgeous-capybara-5ab697.netlify.app",
+  origin: "http://localhost:3000",
 }
 ));
 app.use(
@@ -27,6 +30,7 @@ app.use(
     })
    );
 app.use(express.json());
+UserRoutes(app);
 ModuleRoutes(app);
 CourseRoutes(app);
 AssignmentRoutes(app);
