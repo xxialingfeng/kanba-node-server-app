@@ -5,7 +5,7 @@ import Lab5 from "./Lab5.js"
 import UserRoutes from "./users/routes.js";
 import cors from "cors";
 import mongoose from "mongoose";
-const CONNECTION_STRING = 'mongodb+srv://lingfengxia:Comprehension365@cluster0.dvm8bcp.mongodb.net/Kanbas?retryWrites=true&w=majority' || 'mongodb://127.0.0.1:27017/Kanbas'
+const CONNECTION_STRING = 'mongodb+srv://lingfengxia:Comprehension365@cluster0.dvm8bcp.mongodb.net/kanbas?retryWrites=true&w=majority' || 'mongodb://127.0.0.1:27017/Kanbas'
 mongoose.connect(CONNECTION_STRING);
 import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
