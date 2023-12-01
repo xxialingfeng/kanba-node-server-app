@@ -11,24 +11,12 @@ import ModuleRoutes from "./modules/routes.js";
 import AssignmentRoutes from './assignments/routes.js';
 import session from 'express-session'
 const app = express();
-app.set("trust proxy", 1);
+//app.set("trust proxy", 1);
 app.use(cors({
   credentials: true,
-  origin: "https://a6--peppy-parfait-96bac1.netlify.app",
+  origin: process.env.FRONTEND_URL,
 }
 ));
-app.use(
-  session({
-    secret: "any string",
-    resave: false,
-    proxy: true,
-    saveUninitialized: false,
-    cookie: {
-      sameSite: "none",
-      secure: true,
-    },
-  })
-);
 const sessionOptions = {
   secret: "any string",
   resave: false,
@@ -42,8 +30,6 @@ if (process.env.NODE_ENV !== "development") {
   };
 }
 app.use(session(sessionOptions));
-
-  
 app.use(express.json());
 UserRoutes(app);
 ModuleRoutes(app);
@@ -51,4 +37,4 @@ CourseRoutes(app);
 AssignmentRoutes(app);
 Hello(app)
 Lab5(app);
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
